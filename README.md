@@ -74,10 +74,17 @@ nano .env
 3. Descargar reglas iniciales
 Bash
 
+<<<<<<< HEAD
     # Primer arranque para generar carpetas
     docker compose up -d
     # Descargar reglas de Emerging Threats
     docker exec -it suricata_sensor suricata-update
+=======
+# Primer arranque para generar carpetas
+docker compose up -d
+# Descargar reglas de Emerging Threats
+docker exec -it suricata_sensor suricata-update
+>>>>>>> b6a910a1ab8c9386d9f28731705c6140659823b9
 
 ⚙️ Uso y Gestión (Workflow)
 Añadir Supresiones (Ignorar alertas)
