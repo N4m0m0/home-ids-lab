@@ -59,8 +59,8 @@ Requisitos Previos
 1. Clonar el repositorio
 Bash
 
-git clone https://github.com/N4m0m0/home-ids-lab-public.git
-cd home-ids-lab-public
+  git clone https://github.com/N4m0m0/home-ids-lab-public.git
+  cd home-ids-lab-public
 
 2. Configurar el entorno
 
@@ -74,17 +74,10 @@ nano .env
 3. Descargar reglas iniciales
 Bash
 
-<<<<<<< HEAD
-    # Primer arranque para generar carpetas
-    docker compose up -d
-    # Descargar reglas de Emerging Threats
-    docker exec -it suricata_sensor suricata-update
-=======
-# Primer arranque para generar carpetas
-docker compose up -d
-# Descargar reglas de Emerging Threats
-docker exec -it suricata_sensor suricata-update
->>>>>>> b6a910a1ab8c9386d9f28731705c6140659823b9
+  # Primer arranque para generar carpetas
+  docker compose up -d
+  # Descargar reglas de Emerging Threats
+  docker exec -it suricata_sensor suricata-update
 
 ⚙️ Uso y Gestión (Workflow)
 Añadir Supresiones (Ignorar alertas)
