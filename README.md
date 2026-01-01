@@ -98,5 +98,5 @@ categories:
 Luego, aplica los cambios y recarga Suricata automáticamente:
 ```Bash
 
-python3 IDS-ToolBox.py
+python3 ids-toolbox.py
 ```
