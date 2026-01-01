@@ -1,0 +1,28 @@
+services:
+  suricata:
+    image: jasonish/suricata:latest
+    container_name: suricata_sensor
+    restart: always
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_NICE
+    volumes:
+      - ./logs:/var/log/suricata
+      - ./config:/etc/suricata
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    command: -i ${SURICATA_INTERFACE}
+
+  evebox:
+    image: jasonish/evebox:latest
+    container_name: evebox_gui
+    restart: always
+    ports:
+      - "5636:5636"
+    volumes:
+      - ./logs:/var/log/suricata
+      - ./evebox_data:/var/lib/evebox
+      - /etc/localtime:/etc/localtime:ro
+    command: -D /var/lib/evebox --datastore sqlite --input /var/log/suricata/eve.json

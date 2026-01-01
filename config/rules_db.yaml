@@ -1,0 +1,219 @@
+config:
+  output_file: "config/threshold.config"
+
+categories:
+  - name: "NAS"
+    description: "Reglas que afectan solamente al NAS"
+    rules:
+      - sid: 2010144
+        description: "P2P - Warning Generico"
+        track: "by_src"
+        target: "$NAS_SERVER"
+      - sid: 2010144
+        description: "P2P - Rutorrent"
+        track: "by_src"
+        target: "$NAS_SERVER"
+      - sid: 2000357
+        description: "P2P - Rutorrent"
+        track: "by_src"
+        target: "$NAS_SERVER"
+  - name: "GENERICOS"
+    description: "Reglas genericas de la red interna"
+    rules:
+      - sid: 2063137
+        description: "File sharing / DNS Filemail"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2027757
+        description: "Dominios .to , tipicos de tracker torrent"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2060502
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2060503
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2060504
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2060505
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2035463
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2035465
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2035466
+        description: "Discord"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2038646
+        description: "Notion"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2028651
+        description: "Steam"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2027757
+        description: "Cgpeers"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2221036
+        description: "Amazon - Verificacion de certificados CRL"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2210045
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210046
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210010
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210030
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210035
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210036
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210004
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210008
+        description: "Movistar - Errores RST / TCP"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210016
+        description: "Epic Games / CDNs de juegos"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2221036
+        description: "Epic Games / CDNs de Juegos"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210050
+        description: "Ilerna"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210054
+        description: "Ilerna"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2029340
+        description: "DNSs / Lookups"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2044673
+        description: "DNSs / Lookups"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2031071
+        description: "Windows"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210016
+        description: "Bitdefender"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2210038
+        description: "Asus"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2060507
+        description: "Anydesk"
+        track: "both"
+        target: "$HOME_NET"
+      - sid: 2043343
+        description: "Rustdesk"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2044076
+        description: "Rustdesk"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2210056
+        description: "Battlenet"
+        track: "by_dst"
+        target: "$HOME_NET"
+      - sid: 2221036
+        description: "Amazon"
+        track: "by_dst"
+        target: "$HOME_NET"
+      - sid: 2016149
+        description: "Parsec"
+        track: "by_dst"
+        target: "$HOME_NET"
+      - sid: 2016150
+        description: "Parsec"
+        track: "by_dst"
+        target: "$HOME_NET"
+      - sid: 2033078
+        description: "VMWare"
+        track: "by_src"
+        target: "$HOME_NET"
+      - sid: 2030702
+        description: "Dropbox"
+        track: "by_src"
+        target: "$HOME_NET"
+
+  - name: "ESCANEOS_MASIVOS"
+    description: "Reglas de escaneos masivos de bots de red"
+    rules:
+      - sid: 2403537
+        description: "Censys"
+        track: "by_dst"
+        target: "$DIOGENES_JR"
+      - sid: 2400005
+        description: "No Identificado / Infectado"
+        track: "by_dst"
+        target: "$DIOGENES_JR"
+
+  - name: "ROUTER"
+    description: "Reglas para eliminar el ruido de conexion local"
+    rules:
+       - sid: 2221010
+         description: "Ruido de conexion local"
+         track: "both"
+         target: "$HOME_NET"
+       - sid: 2260002
+         description: "Ruido de conexion local"
+         track: "both"
+         target: "$HOME_NET"
+       - sid: 2033078
+         description: "Ruido de conexion local"
+         track: "by_src"
+         target: "$HOME_NET"
+
+  - name: "SWITCH"
+    description: "Reglas pertenecientes del Switch"
+    rules:
+       - sid: 2200121
+         description: "Protocolo STP / Ethertype Unknow"
+         track: "by_src"
+         target: "$SWITCH_CISCO"
+       - sid: 2260001
+         description: "Wrong Direction"
+         track: "by_src"
+         target: "$SWITCH_CISCO"
+
