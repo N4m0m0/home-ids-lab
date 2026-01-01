@@ -21,7 +21,7 @@ A diferencia de una instalación manual estándar, este proyecto implementa IaC 
 🏗️ Arquitectura
 
 El sistema está diseñado para funcionar en un servidor con dos interfaces de red (Gestión + Sniffing).
-Fragmento de código
+```Fragmento de código
 
 graph TD
     Internet((Internet)) --> Router
@@ -35,7 +35,7 @@ graph TD
         Suricata --> |JSON Logs| Evebox[🐳 Evebox]
         Evebox --> |HTTP| Dashboard[🖥️ Dashboard Web]
     end
-
+```
 ✨ Características Principales
 
 -   Despliegue Rápido: docker compose up y listo.
@@ -57,33 +57,35 @@ Requisitos Previos
   - Una interfaz de red dedicada a la escucha (Promiscuous mode/Port Mirroring).
 
 1. Clonar el repositorio
-Bash
+```Bash
 
   git clone https://github.com/N4m0m0/home-ids-lab-public.git
   cd home-ids-lab-public
+```
 
 2. Configurar el entorno
 
 Crea el archivo .env basado en el ejemplo y define tu interfaz de escucha (la que recibe el tráfico espejo):
-Bash
+```Bash
 
 cp .env.example .env
 nano .env
+```
 # Cambiar: SURICATA_INTERFACE=eth1 (o tu interfaz real)
 
 3. Descargar reglas iniciales
-Bash
+```Bash
 
   # Primer arranque para generar carpetas
   docker compose up -d
   # Descargar reglas de Emerging Threats
   docker exec -it suricata_sensor suricata-update
-
+```
 ⚙️ Uso y Gestión (Workflow)
 Añadir Supresiones (Ignorar alertas)
 
 En lugar de editar archivos complejos, edita rules_db.yaml:
-YAML
+```YAML
 
 categories:
   - name: "Falsos Positivos Spotify"
@@ -92,8 +94,9 @@ categories:
         target: 192.168.1.55
         track: by_src
         description: "Ignorar tráfico UDP ruidoso de Spotify en móvil"
-
+```
 Luego, aplica los cambios y recarga Suricata automáticamente:
-Bash
+```Bash
 
 python3 IDS-ToolBox.py
+```
